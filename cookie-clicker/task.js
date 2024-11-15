@@ -11,6 +11,4 @@ img.onclick = () => {
     } else { img.width -= 20
 
     }
-
-   
 };
