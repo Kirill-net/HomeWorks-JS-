@@ -27,20 +27,12 @@ const addCart = ((img, count, id) => {
     else {
     products.push(id)
 
-    let p1 = document.createElement("div")
-    let p2 = document.createElement("img")
-    let p3 = document.createElement("div")
-
-    p1.className = "cart__product"
-    p1.setAttribute("data-id", `${id}`)
-    p2.className = "cart__product-image"
-    p2.src = img
-    p3.className = "cart__product-count"
-    p3.textContent = `${count}`
-
-    p1.appendChild(p2)
-    p1.appendChild(p3)
-    cart.appendChild(p1)
+    cart.insertAdjacentHTML('afterbegin', `
+        <div class="cart__product" data-id=${id}>
+            <img class="cart__product-image" src=${img}>
+            <div class="cart__product-count">${count}</div>
+        </div>
+        `);
     }
 })
 
